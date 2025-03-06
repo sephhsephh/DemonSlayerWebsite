@@ -56,11 +56,11 @@ body {
 }
 
 .btn {
+    cursor: pointer;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     color: var(--text-light);
-    /* font-family: "Bebas Neue", sans-serif; */
     font-family: "Bloodcrow", sans-serif;
     font-size: 32px;
     font-weight: 400;
@@ -68,7 +68,12 @@ body {
     padding: 5px 15px;
     position: relative;
     text-decoration: none;
+    max-width: 300px; /* Keeps button from stretching too wide */
+    width: 100%; /* Ensures responsiveness */
+    height: 50px;
+    text-align: center; /* Centers text inside */
 }
+
 
 .btn a {
     text-decoration: none;
@@ -321,7 +326,7 @@ section .text-container-light {
 }
 #hero .image-container img {
     /* border: 1px solid green; */
-    width: 50%;
+    width: 60%;
 }
 #hero .image-container {
     transition: opacity 0.5s ease-in-out; /* Smooth transition */
@@ -360,7 +365,7 @@ section .text-container-light {
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, .5),
+        rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 1)
     );
     content: "";
@@ -373,14 +378,11 @@ section .text-container-light {
     z-index: 1;
 }
 
-#lore {
-    background: url("./images/infinity-castle.jpg") no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-    
+#characters .content {
+    display: flex;
 }
+
+
 #lore::before {
     background: linear-gradient(
             to right,
@@ -415,8 +417,114 @@ section .text-container-light {
     width: 100%;
     z-index: 1;
 }
-#characters .content {
+
+#lore {
+    position: relative;
+    padding: 50px;
+    color: white;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    /* transition: background 1s ease-in-out; */
+    background-image: url(./images/backgrounds/slayers/pillar-meeting.jpg);
+    z-index: 10;
+}
+
+#lore .content {
     display: flex;
+    flex-direction: column;
+    align-items: start;
+    z-index: 5;
+}
+#lore .title-div{
+    /* border: 1px solid yellow; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+#lore .section-title {
+    z-index: 10;
+    /* border: 1px solid yellow; */
+}
+
+
+#perspective-title{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 32px;
+}
+#perspective-content {
+    max-width: 800px;
+    padding: 0px 20px;
+    font-size: 18px;
+    font-family: "Noto Sans JP" sans-serif;
+    text-align: center;
+}
+/* Door transition container */
+.door-transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Left and Right Door */
+.door-left,
+.door-right {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    overflow: hidden; /* Prevents gradient overflow */
+}
+
+/* Overlay effect */
+.door-left::before,
+.door-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + 20px); /* Expands slightly beyond the edges */
+    height: calc(100% + 20px);
+    background: 
+        linear-gradient(to right, var(--flame-orange) 5%, transparent 48%, transparent 52%, var(--flame-orange) 95%),
+        linear-gradient(to bottom, var(--flame-orange) 5%, transparent 48%, transparent 52%, var(--flame-orange) 95%);
+    opacity: 0.4; /* Softer effect */
+    filter: blur(3px); /* Minimal blur to keep the glow contained */
+    pointer-events: none;
+}
+
+
+
+
+/* Default closed position (no transition) */
+.door-left {
+    left: 0;
+    transform: translateX(0);
+    background-image: url("./images/left-door.jpg"); /* Change to your door image */
+}
+.door-right {
+    right: 0;
+    transform: translateX(0);
+    background-image: url("./images/right-door.jpg"); /* Change to your door image */
+}
+
+/* When triggered, doors open with animation */
+.door-transition.open .door-left {
+    transition: transform 0.1s ease-in-out;
+    transform: translateX(-100%);
+}
+.door-transition.open .door-right {
+    transition: transform 0.1s ease-in-out;
+    transform: translateX(100%);
 }
 
 @keyframes fadeInOut {

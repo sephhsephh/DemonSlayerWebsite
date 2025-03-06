@@ -25,3 +25,22 @@ export const characters = [
         description: "The Water Hashira, known for his calm demeanor and mastery of Water Breathing techniques."
     }
 ];
+
+export const loreBackgrounds = {
+    slayers: [
+        "./images/backgrounds/slayers/pillar-meeting.jpg",
+        "./images/backgrounds/slayers/snowy-forest-giyu.jpg",
+        "./images/backgrounds/slayers/wisteria-forest-tanjiro.jpg",
+        "./images/backgrounds/slayers/hashiras-hallway.jpg",
+        "./images/backgrounds/slayers/hashira-back-view.jpg",
+        "./images/backgrounds/slayers/ubayashiki-fam.jpg",
+    ],
+    demons: [
+        "./images/backgrounds/demons/infinity-castle.jpg",
+        "./images/backgrounds/demons/upper-moon-3-1.jpg",
+        "./images/backgrounds/demons/upper-moons-eyes.jpg",
+        "./images/backgrounds/demons/um-3-2.jpeg",
+        "./images/backgrounds/demons/muzan-grab.png",
+        "./images/backgrounds/demons/biwa-demon-flip.jpg",
+    ]
+};

@@ -44,7 +44,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s;
+    transition: all 0.6s;
     transform-style: preserve-3d;
 }
 
@@ -127,12 +127,48 @@
     transform: rotateY(180deg);
 }
 
+@keyframes bgFloat1 {
+    0% { background-position: center top; }
+    50% { background-position: calc(50% + 5px) calc(0% + 10px); }
+    100% { background-position: center top; }
+}
+
+@keyframes bgFloat2 {
+    0% { background-position: center top; }
+    50% { background-position: calc(50% - 5px) calc(0% - 10px); }
+    100% { background-position: center top; }
+}
+
+@keyframes bgFloat3 {
+    0% { background-position: center top; }
+    50% { background-position: calc(50% + 8px) calc(0% + 8px); }
+    100% { background-position: center top; }
+}
+
 .hover-flip-card .card-inner .card-front,
 .hover-flip-card .card-inner .card-back {
     background-size: cover;
     background-position: center;
 }
 
+/* Apply different floating effects only to the card backs */
+.hover-flip-card #tanjiro .card-back {
+    animation: bgFloat1 3.2s infinite ease-in-out alternate;
+}
+.hover-flip-card #zenitsu .card-back {
+    animation: bgFloat2 2.8s infinite ease-in-out alternate;
+}
+.hover-flip-card #inosuke .card-back {
+    animation: bgFloat3 3.5s infinite ease-in-out alternate;
+}
+.hover-flip-card #giyu .card-back {
+    animation: bgFloat1 3s infinite ease-in-out alternate;
+}
+.hover-flip-card #nezuko .card-back {
+    animation: bgFloat2 3.3s infinite ease-in-out alternate;
+}
+
+/* Background images */
 .hover-flip-card #tanjiro .card-front {
     background-image: url("./images/patterns/tanjiro-pattern.jpg");
 }
@@ -147,7 +183,6 @@
 }
 .hover-flip-card #inosuke .card-front {
     background-image: url("./images/patterns/inosuke-pattern.jpg");
-    background-position: top;
 }
 .hover-flip-card #inosuke .card-back {
     background-image: url("./images/characters/inosuke1.jpg");
@@ -165,6 +200,72 @@
     background-image: url("./images/characters/nezuko1.jpg");
 }
 
+
+.hover-flip-card #nezuko.flipped .card-back::before { /*CARD BACK OVERLAY*/
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 1),
+        var(--nezuko-pink)
+    );
+}
+.hover-flip-card #tanjiro.flipped .card-back::before { /*CARD BACK OVERLAY*/
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 1),
+        var(--tanjiro-green)
+    );
+}
+.hover-flip-card #inosuke.flipped .card-back::before { /*CARD BACK OVERLAY*/
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 1),
+        var(--inosuke-blue)
+    );
+}
+.hover-flip-card #zenitsu.flipped .card-back::before { /*CARD BACK OVERLAY*/
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 1),
+        var(--zenitsu-yellow)
+    );
+}
+.hover-flip-card #giyu.flipped .card-back::before { /*CARD BACK OVERLAY*/
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 1),
+        cyan
+    );
+}
 /* CARD INFO NAMES GLOW EFFECT START --------------------------- */
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
