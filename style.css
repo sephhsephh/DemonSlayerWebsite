@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@100..900&display=swap");
+@import url("./fonts.css");
+html {
+    overflow-x: hidden;
+}
+:root {
+    /* Primary Colors */
+    --tanjiro-green: #1f513f;
+    --nezuko-pink: #f9b8c2;
+    --zenitsu-yellow: #f7c800;
+    --inosuke-blue: #3e7cb1;
+
+    /* Secondary Colors */
+    --demon-red: #8a1c1c;
+    --nichirin-black: #1a1a1a;
+    --smoky-white: #f5f5f5;
+
+    /* Accent Colors */
+    --flame-orange: #ff6b00;
+    --butterfly-purple: #7e5a9b;
+
+    /* Text Colors */
+    --text-light: #f5f5f5;
+    --text-dark: #1a1a1a;
+
+    /* Backgrounds */
+    --background-light: #f5f5f5;
+    --background-dark: #1a1a1a;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--demon-red);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--inosuke-blue);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--zenitsu-yellow);
+}
+body {
+    background-color: var(--nichirin-black);
+}
+
+.btn {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: var(--text-light);
+    /* font-family: "Bebas Neue", sans-serif; */
+    font-family: "Bloodcrow", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 25px 5px;
+    padding: 5px 15px;
+    position: relative;
+    text-decoration: none;
+}
+
+.btn a {
+    text-decoration: none;
+    transition: all 0.42s ease-in-out;
+}
+
+.btn-type-a {
+    background-image: url(./images/patterns/water-pattern.jpg);
+    transition: all 0.42s;
+}
+
+.btn-type-a a {
+    background: -webkit-linear-gradient(var(--inosuke-blue), var(--text-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-type-a:hover a {
+    text-shadow: 0px 0px 10px var(--flame-orange);
+}
+
+.btn-type-b {
+    background-image: url(./images/patterns/spider-pattern.jpg);
+}
+
+.btn-type-b a {
+    background: -webkit-linear-gradient(var(--flame-orange), var(--text-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-container {
+    /* border: 5px solid red; */
+    text-align: center;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    height: 75px;
+    font-family: "Bebas Neue", sans-serif;
+}
+.info-container img {
+    width: 50%;
+    /* border: 1px solid red; */
+}
+.info-container .info {
+    width: 30%;
+    /* border: 1px solid blue; */
+}
+.info-container .info h2 {
+    color: #d8d8d8;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 42px;
+}
+.info-container .info h4 {
+    color: #d8d8d8;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    /* padding: 20px 0px; */
+    max-height: 1080px;
+    /* border: 1px solid green; */
+}
+
+section .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-auto-rows: 1fr; /* Ensures equal height */
+    max-width: 1920px;
+    min-height: 280px;
+    place-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    gap: 10px; /* Optional: Adds spacing between items */
+    /* border: 2px solid yellow; */
+}
+
+.section-content-divider {
+    z-index: 10;
+    display: grid;
+    grid-template-rows: 1fr; /* Ensures equal height for both rows */
+    grid-template-columns: 1fr;
+    /* border: 3px solid blue; */
+}
+
+.section-content-divider .top,
+.section-content-divider .bottom {
+    width: 100%;
+}
+
+.section-content-divider .top {
+    /* border: 5px solid green; */
+    width: 100%;
+}
+
+.section-content-divider .bottom {
+    /* border: 5px solid violet; */
+    width: 100%;
+}
+
+section .image-container {
+    width: 100%;
+    /* border: 5px solid red; */
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: space-between;
+}
+section .image-container img {
+    width: 100%;
+}
+
+section .text-container-light {
+    padding: 10px 20px;
+    z-index: 10;
+}
+
+.section-title {
+    animation: gradientMove 23s infinite ease-in-out;
+    background: linear-gradient(
+        -60deg,
+        var(--smoky-white),
+        var(--nichirin-black),
+        red,
+        white,
+        red,
+        var(--nichirin-black),
+        var(--smoky-white)
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Bloodcrow", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    margin: 100px 0px;
+}
+.section-title h1 {
+    font-size: 90px;
+    font-weight: 400;
+}
+.section-title h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 48px;
+}
+
+.text-container-light {
+    font-family: ;
+    color: var(--text-light);
+}
+
+.title-text {
+    animation: gradientMove 10s infinite ease-in-out;
+    background: linear-gradient(
+        -60deg,
+        var(--smoky-white),
+        var(--nichirin-black),
+        red,
+        white,
+        red,
+        var(--nichirin-black),
+        var(--smoky-white)
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Bloodcrow", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+.title-text h1 {
+    font-size: 82px;
+    font-weight: 400;
+}
+.title-text h2 {
+    font-weight: 400;
+    font-size: 48px;
+}
+
+#hero {
+    background: url("./images/hero.jpg") no-repeat;
+    background-position: top;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#hero::before {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 0.8) 40%,
+        rgba(0, 0, 0, 0) 70%
+    );
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+#hero #left {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 50px;
+}
+#hero #right {
+    height: 100%;
+    /* border: 1px solid yellow; */
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    width: 100%;
+    gap: 50px;
+    animation: fadeInOut 5s infinite;
+    opacity: 1;
+    transition: opacity 0.42s ease-in-out;
+}
+#hero .image-container img {
+    /* border: 1px solid green; */
+    width: 50%;
+}
+#hero .image-container {
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+#hero .image-container:hover {
+    opacity: 0.1;
+}
+
+#hero #right .bottom {
+    /* border: 15px solid yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#characters {
+    background: url("./images/patterns/spider-pattern.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    max-height: 1080px;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding: 200px 0px;
+    /* border: 3px solid yellow; */
+}
+
+#characters::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, .5),
+        rgba(0, 0, 0, 1)
+    );
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#lore {
+    background: url("./images/infinity-castle.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    
+}
+#lore::before {
+    background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0)
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            var(--nichirin-black)
+        );
+
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+#characters .content {
+    display: flex;
+}
+
+@keyframes fadeInOut {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.05;
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

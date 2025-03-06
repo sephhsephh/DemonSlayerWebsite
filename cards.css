@@ -1,0 +1,246 @@
+:root {
+    /* Primary Colors */
+    --tanjiro-green: #1f513f;
+    --nezuko-pink: #f9b8c2;
+    --zenitsu-yellow: #f7c800;
+    --inosuke-blue: #3e7cb1;
+
+    /* Secondary Colors */
+    --demon-red: #8a1c1c;
+    --nichirin-black: #1a1a1a;
+    --smoky-white: #f5f5f5;
+
+    /* Accent Colors */
+    --flame-orange: #ff6b00;
+    --butterfly-purple: #7e5a9b;
+
+    /* Text Colors */
+    --text-light: #f5f5f5;
+    --text-dark: #1a1a1a;
+
+    /* Backgrounds */
+    --background-light: #f5f5f5;
+    --background-dark: #1a1a1a;
+}
+.cards-container {
+    /* border: 1px solid yellow; */
+    width: 100%;
+    display: grid;
+    padding: 0px 10px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.hover-flip-card {
+    height: 80vh;
+    width: 100%;
+    /* max-width: 300px; */
+    max-height: 600px;
+    margin: 1rem auto;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.hover-flip-card .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+
+.hover-flip-card .card-front,
+.hover-flip-card .card-back { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 0.5rem;
+}
+
+.hover-flip-card .card-back{ /*CARD BACK INFO -----------------------------------*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.hover-flip-card .card-back *{
+    width: 100%;
+    z-index: 10;
+    padding: 0px 14px;
+}
+.hover-flip-card .card-back-info h4{
+    font-family: "Bebas Neue";
+    font-size: 36px;
+}
+.hover-flip-card .card-back .card-back-info p{
+    padding-bottom: 50px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 18px;
+    width: 90%;
+    /* border: 1px solid yellow; */
+}
+.hover-flip-card .card-back::before { /*CARD BACK OVERLAY*/
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 1)
+    );
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.hover-flip-card .card-front {
+    background: white;
+    border: 1px solid var(--tanjiro-green);
+}
+
+.hover-flip-card .card-back {
+    background: #8b5cf6;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.hover-flip-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* Only flips the card that was clicked */
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.hover-flip-card .card-inner .card-front,
+.hover-flip-card .card-inner .card-back {
+    background-size: cover;
+    background-position: center;
+}
+
+.hover-flip-card #tanjiro .card-front {
+    background-image: url("./images/patterns/tanjiro-pattern.jpg");
+}
+.hover-flip-card #tanjiro .card-back {
+    background-image: url("./images/characters/tanjiro1.jpg");
+}
+.hover-flip-card #zenitsu .card-front {
+    background-image: url("./images/patterns/zenitsu-pattern.jpg");
+}
+.hover-flip-card #zenitsu .card-back {
+    background-image: url("./images/characters/zenitsu1.jpg");
+}
+.hover-flip-card #inosuke .card-front {
+    background-image: url("./images/patterns/inosuke-pattern.jpg");
+    background-position: top;
+}
+.hover-flip-card #inosuke .card-back {
+    background-image: url("./images/characters/inosuke1.jpg");
+}
+.hover-flip-card #giyu .card-front {
+    background-image: url("./images/patterns/giyu-pattern.jpg");
+}
+.hover-flip-card #giyu .card-back {
+    background-image: url("./images/characters/giyu3.jpg");
+}
+.hover-flip-card #nezuko .card-front {
+    background-image: url("./images/patterns/nezuko-pattern.jpg");
+}
+.hover-flip-card #nezuko .card-back {
+    background-image: url("./images/characters/nezuko1.jpg");
+}
+
+/* CARD INFO NAMES GLOW EFFECT START --------------------------- */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.hover-flip-card h4 {
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s infinite ease-in-out;
+}
+.hover-flip-card #zenitsu h4 {
+    background-image: linear-gradient(
+        90deg,
+        var(--zenitsu-yellow),
+        black,
+        var(--zenitsu-yellow),
+        white,
+        var(--zenitsu-yellow),
+        black,
+        var(--zenitsu-yellow)
+    );
+}
+
+.hover-flip-card #inosuke h4 {
+    background-image: linear-gradient(
+        90deg,
+        var(--inosuke-blue),
+        black,
+        var(--inosuke-blue),
+        white,
+        var(--inosuke-blue),
+        black,
+        var(--inosuke-blue)
+    );
+}
+
+.hover-flip-card #tanjiro h4 {
+    background-image: linear-gradient(
+        90deg,
+        var(--tanjiro-green),
+        white,
+        var(--tanjiro-green),
+        white,
+        var(--tanjiro-green),
+        white,
+        var(--tanjiro-green)
+    );
+}
+
+.hover-flip-card #nezuko h4 {
+    background-image: linear-gradient(
+        90deg,
+        var(--nezuko-pink),
+        black,
+        var(--nezuko-pink),
+        white,
+        var(--nezuko-pink),
+        black,
+        var(--nezuko-pink)
+    );
+}
+
+.hover-flip-card #giyu h4 {
+    background-image: linear-gradient(
+        90deg,
+        var(--zenitsu-yellow),
+        var(--tanjiro-green),
+        var(--zenitsu-yellow),
+        cyan,
+        var(--zenitsu-yellow),
+        var(--tanjiro-green),
+        var(--zenitsu-yellow)
+    );
+}
+/* CARD INFO NAMES GLOW EFFECT END --------------------------- */
+

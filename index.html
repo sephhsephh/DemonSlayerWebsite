@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="cards.css" />
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <script  type="module" src="index.js"></script>
+        <title>Demon Slayer</title>
+    </head>
+    <body>
+        <nav></nav>
+        <main>
+            <section id="hero">
+                <div class="content">
+                    <div
+                        class="section-content-divider"
+                        id="left"
+                        data-aos="fade-right"
+                    >
+                        <div class="top"></div>
+                        <div class="bottom">
+                            <div class="text-container-light">
+                                <div class="title-text">
+                                    <h1>Kimetsu no Yaiba</h1>
+                                    <h2>鬼滅の刃</h2>
+                                </div>
+                                <p class="info-text">
+                                    Step into the world of
+                                    <strong>Kimetsu no Yaiba</strong>—where
+                                    courage meets destiny. Explore character
+                                    lore, breathtaking battles, and the
+                                    legendary Nichirin Blades. Are you ready to
+                                    embark on the ultimate journey?
+                                </p>
+                                <div class="hero-buttons">
+                                    <button class="btn btn-type-a">
+                                        <a href="">JOIN THE FIGHT</a>
+                                    </button>
+                                    <button class="btn btn-type-b">
+                                        <a href="">Watch Now</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content-divider" id="right">
+                        <div class="image-container top">
+                            <img
+                                src="./images/demon-slayer-logo.png"
+                                alt=""
+                                data-aos="fade-left"
+                                data-aos-delay="500"
+                            />
+                        </div>
+                        <div class="info-container bottom">
+                            <div class="info" id="rating">
+                                <h2>Rating</h2>
+                                <img src="images/5starRating.png" alt="" />
+                            </div>
+                            <div class="info">
+                                <h2>Genre</h2>
+                                <h4>Dark Fantasy</h4>
+                            </div>
+                            <div class="info">
+                                <h2>Creator</h2>
+                                <h4>Koyoharu Gotouge</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="characters">
+                <div class="section-title">
+                    <h1>Main Characters</h1>
+                    <h2>True heroes of the field</h2>
+                </div>
+                <div class="content">
+                    <div class="cards-container">
+                        <!-- constants.js characters -->
+                    </div>
+                </div>
+            </section>
+            <section id="lore">
+                <div class="content"></div>
+            </section>
+        </main>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 1200,
+                mirror: true,
+            });
+        </script>
+    </body>
+</html>
