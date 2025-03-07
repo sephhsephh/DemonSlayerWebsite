@@ -170,7 +170,7 @@
 
 /* Background images */
 .hover-flip-card #tanjiro .card-front {
-    background-image: url("./images./patterns/tanjiro-pattern.jpg");
+    background-image: url("./images/patterns/tanjiro-pattern.jpg");
 }
 .hover-flip-card #tanjiro .card-back {
     background-image: url("./images/characters/tanjiro1.jpg");
@@ -191,7 +191,7 @@
     background-image: url("./images/patterns/giyu-pattern.jpg");
 }
 .hover-flip-card #giyu .card-back {
-    background-image: url("./images/characters/giyu3.jpg");
+    background-image: url("./images/characters/giyu8.jpg");
 }
 .hover-flip-card #nezuko .card-front {
     background-image: url("./images/patterns/nezuko-pattern.jpg");

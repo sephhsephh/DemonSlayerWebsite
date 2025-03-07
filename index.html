@@ -3,7 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="./images/demon-slayer-logo.ico">
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="./images/demon-slayer-logo.ico"
+        />
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="cards.css" />
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -37,11 +41,27 @@
                                 </p>
                                 <div class="hero-buttons">
                                     <button class="btn btn-type-a">
-                                        <a href="">JOIN THE FIGHT</a>
+                                        <i class="fa-brands fa-readme"></i>
+                                        <span> <a href="https://demonslayerfree.online/" target="_blank">Read Manga</a></span>
+                                    </button>                                    
+                                    <button class="btn btn-type-b" id="watch-trailer-btn">
+                                        <i class="fa-solid fa-tv"></i>
+                                        <span>Watch Trailer</span>
                                     </button>
                                     <button class="btn btn-type-b">
-                                        <a href="">Watch Now</a>
+                                        <i class="fa-regular fa-id-badge"></i>
+                                        <span><a href="#character-cards-container">Main Characters</a></span>
                                     </button>
+                                    <button class="btn btn-type-b">
+                                        <i class="fa-solid fa-circle-question"></i>                                        <span><a href="#lore">Read Lore</a></span>
+                                    </button>
+                                    <!-- Modal Structure -->
+                                    <div class="overlay" id="trailer-overlay">
+                                        <div class="modal">
+                                            <span class="close-btn" id="close-trailer">&times;</span>
+                                            <iframe id="trailer-video" src="" allowfullscreen></iframe>
+                                        </div>
+                                    </div>                               
                                 </div>
                             </div>
                         </div>
@@ -59,6 +79,7 @@
                             <div class="info" id="rating">
                                 <h2>Rating</h2>
                                 <img src="images/5starRating.png" alt="" />
+                                (IMDb)
                             </div>
                             <div class="info">
                                 <h2>Genre</h2>
@@ -78,7 +99,7 @@
                     <h2>Masters of Breathing Techniques</h2>
                 </div>
                 <div class="content">
-                    <div class="cards-container">
+                    <div class="cards-container" id="character-cards-container">
                         <!-- constants.js characters -->
                     </div>
                 </div>
@@ -88,28 +109,56 @@
                     <div class="door-left"></div>
                     <div class="door-right"></div>
                 </div>
-               
-                
+
                 <div class="content">
                     <div class="title-div">
-                        <div class="section-title">
+                        <div class="section-title"  data-aos="fade-left" data-aos-delay="100">
                             <h1>Echoes of the Past</h1>
-                            <h2>Unraveling the Forgotten Histories of Slayers and Demons</h2>
-                        </div>
-                        <button id="toggle-perspective" class="btn btn-type-a"></button>
+                            <h2>
+                                Unraveling the Forgotten Histories of Slayers
+                                and Demons
+                            </h2>
+                        </div>  
                     </div>
-                    <div class="perspective-text">
-                        <h3 id="perspective-title">The Slayer's Struggle</h3>
-                        <p id="perspective-content">
-                            "The Demon Slayer Corps is a secretive organization sworn to protect humanity from the bloodthirsty demons lurking in the shadows. In Taishō-era Japan, Tanjiro Kamado, a kind-hearted boy, finds his world shattered when a demon slaughters his family—leaving only his sister, Nezuko, who has been transformed into a demon. Fueled by vengeance and love, Tanjiro trains rigorously in the art of Water Breathing and joins the corps, embarking on a perilous quest to hunt demons and seek a cure for Nezuko. Alongside fierce warriors, each carrying their own tragic pasts, he faces relentless battles that test his spirit, determination, and humanity. Their fight is not just against demons but against the darkness that lurks within."
+                    <div class="perspective-text"  >
+                        <button class="btn btn-type-a" id="toggle-perspective" data-aos="fade-up" data-aos-delay="1000">
+                            <i class="fa-solid fa-eye"></i>
+                            <span><a >Switch Perspective</a></span>
+                        </button>   
+                        <h3 id="perspective-title" data-aos="fade-down" data-aos-delay="700">The Slayer's Struggle</h3>
+                        <p id="perspective-content" data-aos="fade-right" data-aos-delay="400">
+                            "The Demon Slayer Corps is a secretive organization
+                            sworn to protect humanity from the bloodthirsty
+                            demons lurking in the shadows. In Taishō-era Japan,
+                            Tanjiro Kamado, a kind-hearted boy, finds his world
+                            shattered when a demon slaughters his family—leaving
+                            only his sister, Nezuko, who has been transformed
+                            into a demon. Fueled by vengeance and love, Tanjiro
+                            trains rigorously in the art of Water Breathing and
+                            joins the corps, embarking on a perilous quest to
+                            hunt demons and seek a cure for Nezuko. Alongside
+                            fierce warriors, each carrying their own tragic
+                            pasts, he faces relentless battles that test his
+                            spirit, determination, and humanity. Their fight is
+                            not just against demons but against the darkness
+                            that lurks within."
                         </p>
                     </div>
                 </div>
             </section>
             <audio id="toggle-sound" src="./media/biwa.mp3"></audio>
-            
+
+
+
+            <section id="footer">
+
+            </section>
         </main>
 
+        <script
+            src="https://kit.fontawesome.com/2e48ada5cb.js"
+            crossorigin="anonymous"
+        ></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init({

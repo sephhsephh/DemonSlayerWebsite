@@ -2,6 +2,7 @@
 @import url("./fonts.css");
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 :root {
     /* Primary Colors */
@@ -55,55 +56,165 @@ body {
     background-color: var(--nichirin-black);
 }
 
+@keyframes breathingGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 69, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 69, 0, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 69, 0, 0.6);
+    }
+}
+
+@keyframes fireFlicker {
+    0%,
+    100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(120%);
+    }
+}
+
+@keyframes sliceEffect {
+    0% {
+        transform: skewX(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: skewX(-20deg) scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: skewX(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Button Base */
 .btn {
     cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    color: var(--text-light);
-    font-family: "Bloodcrow", sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    margin: 25px 5px;
-    padding: 5px 15px;
-    position: relative;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
     text-decoration: none;
-    max-width: 300px; /* Keeps button from stretching too wide */
-    width: 100%; /* Ensures responsiveness */
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 250px; /* Adjust as needed */
+    width: auto;
     height: 50px;
-    text-align: center; /* Centers text inside */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: none;
+    animation: gradientMove 23s infinite ease-in-out;
+    background: linear-gradient(
+        -60deg,
+        var(--smoky-white),
+        var(--nichirin-black),
+        red,
+        black,
+        red,
+        var(--nichirin-black),
+        var(--smoky-white)
+    );
+    background-size: 300% 300%;
+    color: white;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Icon Always Visible */
+.btn i {
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
+}
 
-.btn a {
+/* Hidden Text */
+.btn span {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 0; /* Starts hidden */
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.btn span a{
     text-decoration: none;
-    transition: all 0.42s ease-in-out;
+    color: white;
 }
 
-.btn-type-a {
-    background-image: url(./images/patterns/water-pattern.jpg);
-    transition: all 0.42s;
+/* Hover Effect - Slide in Text */
+.btn:hover span {
+    max-width: 200px; /* Adjust width based on text length */
+    opacity: 1;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+.btn:active{
+    background: var(--demon-red);
 }
 
-.btn-type-a a {
-    background: -webkit-linear-gradient(var(--inosuke-blue), var(--text-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+
+
+/*yt trailer*/
+/* Overlay background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
-.btn-type-a:hover a {
-    text-shadow: 0px 0px 10px var(--flame-orange);
+/* Modal container */
+.modal {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    background: black;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-type-b {
-    background-image: url(./images/patterns/spider-pattern.jpg);
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
 }
 
-.btn-type-b a {
-    background: -webkit-linear-gradient(var(--flame-orange), var(--text-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* YouTube Video */
+#trailer-video {
+    width: 100%;
+    height: 450px;
+    border: none;
 }
+
+/* Show overlay */
+.show {
+    display: flex !important;
+}
+/* YOUTUBE TRAILER END ----------------- */
+
 
 .info-container {
     /* border: 5px solid red; */
@@ -129,13 +240,13 @@ body {
     color: #d8d8d8;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
-    font-size: 42px;
+    font-size: 32px;
 }
 .info-container .info h4 {
-    color: #d8d8d8;
+    color: #d8d8d88b;
     font-family: "Noto Sans JP", sans-serif;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 main {
@@ -317,7 +428,7 @@ section .text-container-light {
     justify-content: start;
     display: flex;
     flex-direction: column;
-    z-index: 10;
+    z-index: 5;
     width: 100%;
     gap: 50px;
     animation: fadeInOut 5s infinite;
@@ -341,6 +452,12 @@ section .text-container-light {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#hero .hero-buttons{
+    margin-top: 20px;
+    /* border: 1px solid yellow; */
+    display: flex;
+    gap: 10px;
 }
 
 #characters {
@@ -382,16 +499,15 @@ section .text-container-light {
     display: flex;
 }
 
-
 #lore::before {
     background: linear-gradient(
             to right,
-            rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 1),
             rgba(0, 0, 0, 0.6),
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0),
             rgba(0, 0, 0, 0)
         ),
         linear-gradient(
@@ -431,12 +547,14 @@ section .text-container-light {
 }
 
 #lore .content {
+    /* border: 5px solid blue; */
     display: flex;
     flex-direction: column;
     align-items: start;
     z-index: 5;
+    padding: 0px 0px;
 }
-#lore .title-div{
+#lore .title-div {
     /* border: 1px solid yellow; */
     width: 100%;
     display: grid;
@@ -445,17 +563,28 @@ section .text-container-light {
 }
 #lore .section-title {
     z-index: 10;
-    /* border: 1px solid yellow; */
+    /* border: 1px solid orange; */
+    margin: 0px;
+}
+.perspective-text{
+    padding: 0px 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    justify-content: center;
+    align-items: center;
 }
 
-
-#perspective-title{
+#perspective-title {
     font-family: "Bebas Neue", sans-serif;
     font-size: 32px;
+    margin-top: 25px;
 }
 #perspective-content {
+    margin-top: 16ox;
     max-width: 800px;
-    padding: 0px 20px;
+    padding: 0px 0px;
     font-size: 18px;
     font-family: "Noto Sans JP" sans-serif;
     text-align: center;
@@ -494,16 +623,24 @@ section .text-container-light {
     left: 0;
     width: calc(100% + 20px); /* Expands slightly beyond the edges */
     height: calc(100% + 20px);
-    background: 
-        linear-gradient(to right, var(--flame-orange) 5%, transparent 48%, transparent 52%, var(--flame-orange) 95%),
-        linear-gradient(to bottom, var(--flame-orange) 5%, transparent 48%, transparent 52%, var(--flame-orange) 95%);
+    background: linear-gradient(
+            to right,
+            var(--flame-orange) 5%,
+            transparent 48%,
+            transparent 52%,
+            var(--flame-orange) 95%
+        ),
+        linear-gradient(
+            to bottom,
+            var(--flame-orange) 5%,
+            transparent 48%,
+            transparent 52%,
+            var(--flame-orange) 95%
+        );
     opacity: 0.4; /* Softer effect */
     filter: blur(3px); /* Minimal blur to keep the glow contained */
     pointer-events: none;
 }
-
-
-
 
 /* Default closed position (no transition) */
 .door-left {
@@ -527,6 +664,13 @@ section .text-container-light {
     transform: translateX(100%);
 }
 
+
+#footer{
+    height: 480px;
+    background: black;
+}
+
+
 @keyframes fadeInOut {
     0%,
     100% {
@@ -548,3 +692,5 @@ section .text-container-light {
         background-position: 0% 50%;
     }
 }
+
+
